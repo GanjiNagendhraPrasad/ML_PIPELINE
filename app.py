@@ -7,7 +7,7 @@ from sklearn.preprocessing import StandardScaler
 app = Flask(__name__)
 
 # Load model and scaler
-with open("Model.pkl", "rb") as f:
+with open("model.pkl", "rb") as f:
     model = pickle.load(f)
 
 with open("standard_scalar.pkl", "rb") as f:
@@ -59,4 +59,5 @@ def index():
     return render_template("index.html", prediction=prediction) # <--- ADDED REQUIRED RETURN STATEMENT
 
 if __name__ == "__main__":
+
     app.run(debug=True)
