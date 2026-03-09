@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Customer Credit Prediction</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#141e30,#243b55);
+}
+
+.container{
+width:850px;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+border-radius:15px;
+padding:30px;
+box-shadow:0 8px 30px rgba(0,0,0,0.5);
+color:white;
+}
+
+h1{
+text-align:center;
+margin-bottom:25px;
+letter-spacing:1px;
+}
+
+form{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+label{
+font-size:14px;
+margin-bottom:4px;
+}
+
+.input-box{
+display:flex;
+flex-direction:column;
+}
+
+input{
+padding:10px;
+border-radius:6px;
+border:none;
+background:rgba(255,255,255,0.15);
+color:white;
+font-size:14px;
+}
+
+input::placeholder{
+color:#ddd;
+}
+
+input:focus{
+outline:none;
+background:rgba(255,255,255,0.25);
+}
+
+button{
+grid-column:span 2;
+padding:14px;
+margin-top:10px;
+border:none;
+border-radius:8px;
+background:#00c6ff;
+background:linear-gradient(90deg,#00c6ff,#0072ff);
+color:white;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.03);
+}
+
+.result{
+margin-top:20px;
+text-align:center;
+font-size:20px;
+font-weight:bold;
+padding:12px;
+border-radius:8px;
+background:rgba(255,255,255,0.2);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Model Prediction</h1>
+
+<form method="post">
+
+<div class="input-box">
+<label>RevolvingUtilizationOfUnsecuredLines_trim</label>
+<input type="number" step="any" name="RevolvingUtilizationOfUnsecuredLines_trim" required>
+</div>
+
+<div class="input-box">
+<label>Age</label>
+<input type="number" step="any" name="Age" required>
+</div>
+
+<div class="input-box">
+<label>NumberOfOpenCreditLinesAndLoans</label>
+<input type="number" step="any" name="NumberOfOpenCreditLinesAndLoans" required>
+</div>
+
+<div class="input-box">
+<label>NumberRealEstateLoansOrLines</label>
+<input type="number" step="any" name="NumberRealEstateLoansOrLines" required>
+</div>
+
+<div class="input-box">
+<label>MonthlyIncome_replaced</label>
+<input type="number" step="any" name="MonthlyIncome_replaced" required>
+</div>
+
+<div class="input-box">
+<label>NumberOfDependents_replaced_trim</label>
+<input type="number" step="any" name="NumberOfDependents_replaced_trim" required>
+</div>
+
+<div class="input-box">
+<label>Gender_Male (1=Male, 0=Female)</label>
+<input type="number" name="Gender_Male" required>
+</div>
+
+<div class="input-box">
+<label>Region_East</label>
+<input type="number" name="Region_East" required>
+</div>
+
+<div class="input-box">
+<label>Region_North</label>
+<input type="number" name="Region_North" required>
+</div>
+
+<div class="input-box">
+<label>Region_South</label>
+<input type="number" name="Region_South" required>
+</div>
+
+<div class="input-box">
+<label>Region_West</label>
+<input type="number" name="Region_West" required>
+</div>
+
+<div class="input-box">
+<label>Rented_OwnHouse_con</label>
+<input type="number" step="any" name="Rented_OwnHouse_con" required>
+</div>
+
+<div class="input-box">
+<label>Occupation_con</label>
+<input type="number" step="any" name="Occupation_con" required>
+</div>
+
+<div class="input-box">
+<label>Education_con</label>
+<input type="number" step="any" name="Education_con" required>
+</div>
+
+<button type="submit">Predict</button>
+
+</form>
+
+{% if prediction is not none %}
+<div class="result">
+Prediction: {{ prediction }}
+</div>
+{% endif %}
+
+</div>
+
+</body>
+</html>
